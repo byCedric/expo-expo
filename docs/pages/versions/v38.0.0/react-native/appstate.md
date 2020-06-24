@@ -18,38 +18,46 @@ AppState is frequently used to determine the intent and proper behavior when han
 
 For more information, see [Apple's documentation](https://developer.apple.com/documentation/uikit/app_and_scenes/managing_your_app_s_life_cycle)
 
-### Basic Usage
+## Basic Usage
 
 To see the current state, you can check `AppState.currentState`, which will be kept up-to-date. However, `currentState` will be null at launch while `AppState` retrieves it over the bridge.
 
 ```js
-import React, { Component } from 'react';
-import { AppState, Text } from 'react-native';
+import React, { useEffect, useRef } from "react";
+import { AppState, StyleSheet, Text, View } from "react-native";
 
-class AppStateExample extends Component {
-  state = {
-    appState: AppState.currentState,
-  };
+export default function AppStateExample() {
+  const appState = useRef(AppState.currentState);
 
-  componentDidMount() {
-    AppState.addEventListener('change', this._handleAppStateChange);
-  }
+  useEffect(() => {
+    AppState.addEventListener("change", _handleAppStateChange);
 
-  componentWillUnmount() {
-    AppState.removeEventListener('change', this._handleAppStateChange);
-  }
+    return () => {
+      AppState.removeEventListener("change", _handleAppStateChange);
+    };
+  }, []);
 
-  _handleAppStateChange = nextAppState => {
-    if (this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
-      console.log('App has come to the foreground!');
+  const _handleAppStateChange = nextAppState => {
+    if (appState.current.match(/inactive|background/) && nextAppState === "active") {
+      console.log("App has come to the foreground!");
     }
-    this.setState({ appState: nextAppState });
+    appState.current = nextAppState;
   };
 
-  render() {
-    return <Text>Current state is: {this.state.appState}</Text>;
-  }
+  return (
+    <View style={styles.container}>
+      <Text>Current state is: {appState.current}</Text>
+    </View>
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  }
+});
 ```
 
 This example will only ever appear to say "Current state is: active" because the app is only visible to the user when in the `active` state, and the null state will happen only momentarily.
@@ -63,6 +71,10 @@ This example will only ever appear to say "Current state is: active" because the
 ### `change`
 
 This event is received when the app state has changed. The listener is called with one of [the current app state values](../appstate/#app-states).
+
+### `memoryWarning`
+
+This event is used in the need of throwing memory warning or releasing it.
 
 ### `focus`
 
