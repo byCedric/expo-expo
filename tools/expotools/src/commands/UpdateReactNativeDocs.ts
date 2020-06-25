@@ -32,11 +32,16 @@ const PREFIX_REMOVED = 'REMOVED_';
 const SUFFIX_CHANGED = '.diff';
 
 const DOCS_IGNORED = [
+  'appearance',
   'appregistry',
+  'appstate',
   'components-and-apis',
+  'devsettings',
   'drawerlayoutandroid',
   'linking',
+  'permissionsandroid',
   'settings',
+  'statusbar',
   'systrace',
 ];
 
@@ -102,7 +107,7 @@ async function getOptions(input: Options): Promise<Options> {
   const answers = questions.length > 0 ? await inquirer.prompt(questions) : {};
 
   return {
-    sdk: answers.sdk || input.sdk,
+    sdk: `v${answers.sdk || input.sdk}`,
     from: answers.from || input.from,
     to: input.to || 'master',
   };
