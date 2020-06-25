@@ -159,7 +159,7 @@ Reverses the direction of scroll. Uses scale transforms of -1.
 
 | Type      | Required |
 | --------- | -------- |
-| [boolean] | No       |
+| boolean | No       |
 
 ---
 
@@ -274,7 +274,7 @@ Set this true while waiting for new data from a refresh.
 
 | Type      | Required |
 | --------- | -------- |
-| [boolean] | No       |
+| boolean | No       |
 
 ---
 
@@ -296,7 +296,7 @@ Rendered at the bottom of each section.
 
 | Type                                                 | Required |
 | ---------------------------------------------------- | -------- |
-| [(info: {section: SectionT}) => ?React.Element<any>] | No       |
+| [(info: {section: SectionT}) => ?React.Element] | No       |
 
 ---
 
@@ -306,7 +306,7 @@ Rendered at the top of each section. These stick to the top of the `ScrollView` 
 
 | Type                                                 | Required |
 | ---------------------------------------------------- | -------- |
-| [(info: {section: SectionT}) => ?React.Element<any>] | No       |
+| [(info: {section: SectionT}) => ?React.Element] | No       |
 
 ---
 
@@ -316,7 +316,7 @@ Rendered at the top and bottom of each section (note this is different from `Ite
 
 | Type              | Required |
 | ----------------- | -------- |
-| [ReactClass<any>] | No       |
+| ReactClass\<any\> | No       |
 
 ---
 

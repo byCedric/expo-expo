@@ -3,7 +3,7 @@ id: dimensions
 title: Dimensions
 ---
 
-> [`useWindowDimensions`](../useWindowDimensions/) is the preffered API for React components. Unlike `Dimensions`, it updates as the window's dimensions update. This works nicely with the React paradigm.
+> [`useWindowDimensions`](../usewindowdimensions/) is the preffered API for React components. Unlike `Dimensions`, it updates as the window's dimensions update. This works nicely with the React paradigm.
 
 ```js
 import { Dimensions } from 'react-native';
@@ -73,8 +73,8 @@ static addEventListener(type, handler)
 Add an event handler. Supported events:
 
 - `change`: Fires when a property within the `Dimensions` object changes. The argument to the event handler is an object with `window` and `screen` properties whose values are the same as the return values of `Dimensions.get('window')` and `Dimensions.get('screen')`, respectively.
-- `window` - Size of the visible Application window
-- `screen` - Size of the device's screen
+  - `window` - Size of the visible Application window
+  - `screen` - Size of the device's screen
 
 ---
 

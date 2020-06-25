@@ -45,38 +45,38 @@ Inherits [View Props](../view/#props).
 
 ### `animating`
 
-Whether to show the indicator (`true`) or hide it (`false`).
+Whether to show the indicator (`true`, the default) or hide it (`false`).
 
-| Type | Required | Default |
-| ---- | -------- | ------- |
-| bool | No       | `true`  |
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
 
 ---
 
 ### `color`
 
-The foreground color of the spinner.
+The foreground color of the spinner (default is gray on iOS and dark cyan on Android).
 
-| Type            | Required | Default                                                                                                                                                                             |
-| --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [color](https://reactnative.dev/docs/colors) | No       | `null` (system accent default color)<div class="label android">Android</div><hr/><ins style="background: #999" class="color-box"></ins>`'#999999'` <div class="label ios">iOS</div> |
+| Type            | Required |
+| --------------- | -------- |
+| [color](https://reactnative.dev/docs/colors) | No |
 
 ---
 
-### `hidesWhenStopped` <div class="label ios">iOS</div>
+### `hidesWhenStopped`
 
-Whether the indicator should hide when not animating.
+Whether the indicator should hide when not animating (true by default).
 
-| Type | Required | Default |
-| ---- | -------- | ------- |
-| bool | No       | `true`  |
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
 
 ---
 
 ### `size`
 
-Size of the indicator.
+Size of the indicator (default is 'small'). Passing a number to the size prop is only supported on Android.
 
-| Type                                                                           | Required | Default   |
-| ------------------------------------------------------------------------------ | -------- | --------- |
-| enum(`'small'`, `'large'`)<hr/>number <div class="label android">Android</div> | No       | `'small'` |
+| Type                               | Required |
+| ---------------------------------- | -------- |
+| enum('small', 'large'), number | No       |

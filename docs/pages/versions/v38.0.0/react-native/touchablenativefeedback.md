@@ -150,27 +150,27 @@ TV next focus up (see documentation for the View component).
 ### `SelectableBackground()`
 
 ```js
-static SelectableBackground(rippleRadius: ?number)
+static SelectableBackground()
 ```
 
-Creates an object that represents android theme's default background for selectable elements (?android:attr/selectableItemBackground). `rippleRadius` parameter controls the radius of the ripple effect.
+Creates an object that represents android theme's default background for selectable elements (?android:attr/selectableItemBackground).
 
 ---
 
 ### `SelectableBackgroundBorderless()`
 
 ```js
-static SelectableBackgroundBorderless(rippleRadius: ?number)
+static SelectableBackgroundBorderless()
 ```
 
-Creates an object that represent android theme's default background for borderless selectable elements (?android:attr/selectableItemBackgroundBorderless). Available on android API level 21+. `rippleRadius` parameter controls the radius of the ripple effect.
+Creates an object that represent android theme's default background for borderless selectable elements (?android:attr/selectableItemBackgroundBorderless). Available on android API level 21+.
 
 ---
 
 ### `Ripple()`
 
 ```js
-static Ripple(color: string, borderless: boolean, rippleRadius: ?number)
+static Ripple(color: string, borderless: boolean)
 ```
 
 Creates an object that represents ripple drawable with specified color (as a string). If property `borderless` evaluates to true the ripple will render outside of the view bounds (see native actionbar buttons as an example of that behavior). This background type is available on Android API level 21+.
@@ -181,7 +181,6 @@ Creates an object that represents ripple drawable with specified color (as a str
 | ------------ | ------- | -------- | ------------------------------------------- |
 | color        | string  | Yes      | The ripple color                            |
 | borderless   | boolean | Yes      | If the ripple can render outside its bounds |
-| rippleRadius | ?number | No       | controls the radius of the ripple effect    |
 
 ---
 

@@ -21,7 +21,8 @@ function MyComponent(props) {
 <TouchableHighlight
   activeOpacity={0.6}
   underlayColor="#DDDDDD"
-  onPress={() => alert('Pressed!')}>
+  onPress={() => alert('Pressed!')}
+>
   <MyComponent />
 </TouchableHighlight>;
 ```

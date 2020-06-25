@@ -25,8 +25,8 @@ const TextInANest = () => {
     <Text style={styles.baseText}>
       <Text style={styles.titleText} onPress={onPressTitle}>
         {titleText}
-        {"\n"}
-        {"\n"}
+        {"\\n"}
+        {"\\n"}
       </Text>
       <Text numberOfLines={5}>{bodyText}</Text>
     </Text>
@@ -414,7 +414,7 @@ e.g., `onLongPress={this.increaseSize}>`
 
 Does this view want to "claim" touch responsiveness? This is called for every touch move on the `View` when it is not the responder.
 
-`View.props.onMoveShouldSetResponder: (event) => [true | false]`.
+`View.props.onMoveShouldSetResponder: (event) => [true | false]`, where `event` is a synthetic touch event as described above.
 
 | Type     | Required |
 | -------- | -------- |
@@ -438,7 +438,7 @@ e.g., `onPress={() => console.log('1st')}`
 
 The View is now responding for touch events. This is the time to highlight and show the user what is happening.
 
-`View.props.onResponderGrant: (event) => {}`.
+`View.props.onResponderGrant: (event) => {}`, where `event` is a synthetic touch event as described above.
 
 | Type     | Required |
 | -------- | -------- |
@@ -450,7 +450,7 @@ The View is now responding for touch events. This is the time to highlight and s
 
 The user is moving their finger.
 
-`View.props.onResponderMove: (event) => {}`.
+`View.props.onResponderMove: (event) => {}`, where `event` is a synthetic touch event as described above.
 
 | Type     | Required |
 | -------- | -------- |
@@ -462,7 +462,7 @@ The user is moving their finger.
 
 Fired at the end of the touch.
 
-`View.props.onResponderRelease: (event) => {}`.
+`View.props.onResponderRelease: (event) => {}`, where `event` is a synthetic touch event as described above.
 
 | Type     | Required |
 | -------- | -------- |
@@ -474,7 +474,7 @@ Fired at the end of the touch.
 
 The responder has been taken from the `View`. Might be taken by other views after a call to `onResponderTerminationRequest`, or might be taken by the OS without asking (e.g., happens with control center/ notification center on iOS)
 
-`View.props.onResponderTerminate: (event) => {}`.
+`View.props.onResponderTerminate: (event) => {}`, where `event` is a synthetic touch event as described above.
 
 | Type     | Required |
 | -------- | -------- |
@@ -498,7 +498,7 @@ Some other `View` wants to become responder and is asking this `View` to release
 
 If a parent `View` wants to prevent a child `View` from becoming responder on a touch start, it should have this handler which returns `true`.
 
-`View.props.onStartShouldSetResponderCapture: (event) => [true | false]`.
+`View.props.onStartShouldSetResponderCapture: (event) => [true | false]`, where `event` is a synthetic touch event as described above.
 
 | Type     | Required |
 | -------- | -------- |

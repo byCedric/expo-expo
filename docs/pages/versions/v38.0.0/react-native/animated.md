@@ -4,12 +4,14 @@ title: Animated
 ---
 
 The `Animated` library is designed to make animations fluid, powerful, and painless to build and maintain. `Animated` focuses on declarative relationships between inputs and outputs, configurable transforms in between, and `start`/`stop` methods to control time-based animation execution.
-+
-+The core workflow for creating an animation is to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates via animations using `Animated.timing()`.
+
+The core workflow for creating an animation is to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates via animations using `Animated.timing()`.
 
 ## Example
 
 The following example contains a `View` which will fade in and fade out based on the animated value `fadeAnim`.
+
+> Don't modify the animated value directly. You can use the [`useRef` Hook](https://reactjs.org/docs/hooks-reference.html#useref) to return a mutable ref object. This ref object's `current` property is initialized as the given argument and persists throughout the component lifecycle.
 
 ```js
 import React, { useRef } from "react";
@@ -78,9 +80,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-> Don't modify the animated value directly. You can use the [`useRef` Hook](https://reactjs.org/docs/hooks-reference.html#useref) to return a mutable ref object. This ref object's `current` property is initialized as the given argument and persists throughout the component lifecycle.
-
-Refer to the [Animations](../animations/#animated-api) guide to see additional examples of `Animated` in action.
+Refer to the [Animations](https://reactnative.dev/docs/animations#animated-api) guide to see additional examples of `Animated` in action.
 
 ## Overview
 
@@ -115,7 +115,7 @@ Animated.timing({}).start(({ finished }) => {
 
 By using the native driver, we send everything about the animation to native before starting the animation, allowing native code to perform the animation on the UI thread without having to go through the bridge on every frame. Once the animation has started, the JS thread can be blocked without affecting the animation.
 
-You can use the native driver by specifying `useNativeDriver: true` in your animation configuration. See the [Animations](../animations/#using-the-native-driver) guide to learn more.
+You can use the native driver by specifying `useNativeDriver: true` in your animation configuration. See the [Animations](https://reactnative.dev/docs/animations#using-the-native-driver) guide to learn more.
 
 ### Animatable components
 
@@ -141,7 +141,7 @@ Animations can also be combined in complex ways using composition functions:
 - [`Animated.sequence()`](../animated/#sequence) starts the animations in order, waiting for each to complete before starting the next.
 - [`Animated.stagger()`](../animated/#stagger) starts animations in order and in parallel, but with successive delays.
 
-Animations can also be chained together by setting the `toValue` of one animation to be another `Animated.Value`. See [Tracking dynamic values](../animations/#tracking-dynamic-values) in the Animations guide.
+Animations can also be chained together by setting the `toValue` of one animation to be another `Animated.Value`. See [Tracking dynamic values](https://reactnative.dev/docs/animations#tracking-dynamic-values) in the Animations guide.
 
 By default, if one animation is stopped or interrupted, then all other animations in the group are also stopped.
 
@@ -161,7 +161,7 @@ The `interpolate()` function allows input ranges to map to different output rang
 
 - [`interpolate()`](../animated/#interpolate)
 
-Read more about interpolation in the [Animation](../animations/#interpolation) guide.
+Read more about interpolation in the [Animation](https://reactnative.dev/docs/animations#interpolation) guide.
 
 ### Handling gestures and other events
 

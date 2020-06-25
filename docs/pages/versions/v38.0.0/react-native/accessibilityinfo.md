@@ -7,7 +7,7 @@ Sometimes it's useful to know whether or not the device has a screen reader that
 
 ## Example
 
-```js
+```javascript
 import React, { useState, useEffect } from "react";
 import { AccessibilityInfo, View, Text, StyleSheet } from "react-native";
 
@@ -25,16 +25,12 @@ export default function App() {
       handleScreenReaderToggled
     );
 
-    AccessibilityInfo.isReduceMotionEnabled().then(
-      reduceMotionEnabled => {
-        setReduceMotionEnabled(reduceMotionEnabled);
-      }
-    );
-    AccessibilityInfo.isScreenReaderEnabled().then(
-      screenReaderEnabled => {
-        setScreenReaderEnabled(screenReaderEnabled);
-      }
-    );
+    AccessibilityInfo.fetch().then(reduceMotionEnabled => {
+      setReduceMotionEnabled(reduceMotionEnabled);
+    });
+    AccessibilityInfo.fetch().then(screenReaderEnabled => {
+      setScreenReaderEnabled(screenReaderEnabled);
+    });
 
     return () => {
       AccessibilityInfo.removeEventListener(

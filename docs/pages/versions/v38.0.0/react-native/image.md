@@ -94,7 +94,7 @@ When building your own native code, GIF and WebP are not supported by default on
 
 You will need to add some optional modules in `android/app/build.gradle`, depending on the needs of your app.
 
-```gradle
+```
 dependencies {
   // If your app supports Android versions before Ice Cream Sandwich (API level 14)
   implementation 'com.facebook.fresco:animated-base-support:1.3.0'
@@ -132,6 +132,45 @@ dependencies {
 - [Shadow Props...](../shadow-props/#props)
 
 - [Transforms...](../transforms/#props)
+
+- **`borderTopRightRadius`**: number
+
+- **`backfaceVisibility`**: enum('visible', 'hidden')
+
+- **`borderBottomLeftRadius`**: number
+
+- **`borderBottomRightRadius`**: number
+
+- **`borderColor`**: [color](https://reactnative.dev/docs/colors)
+
+- **`borderRadius`**: number
+
+- **`borderTopLeftRadius`**: number
+
+- **`backgroundColor`**: [color](https://reactnative.dev/docs/colors)
+
+- **`borderWidth`**: number
+
+- **`opacity`**: number
+
+- **`overflow`**: enum('visible', 'hidden')
+
+- **`resizeMode`**: Object.keys(ImageResizeMode)
+
+- **`tintColor`**: [color](https://reactnative.dev/docs/colors)
+
+  Changes the color of all the non-transparent pixels to the tintColor.
+
+- **`overlayColor`**: string (_Android_)
+
+  When the image has rounded corners, specifying an overlayColor will cause the remaining space in the corners to be filled with a solid color. This is useful in cases which are not supported by the Android implementation of rounded corners:
+
+  - Certain resize modes, such as 'contain'
+  - Animated GIFs
+
+  A typical way to use this prop is with images displayed on a solid background and setting the `overlayColor` to the same color as the background.
+
+  For details of how this works under the hood, see http://frescolib.org/docs/rounded-corners-and-circles.html
 
 ---
 
@@ -173,7 +212,7 @@ When the image is resized, the corners of the size specified by `capInsets` will
 
 | Type         | Required | Platform |
 | ------------ | -------- | -------- |
-| [Rect](rect) | No       | iOS      |
+| object: {top: number, left: number, bottom: number, right: number} | No       | iOS      |
 
 ---
 
