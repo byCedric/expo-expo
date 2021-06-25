@@ -563,10 +563,10 @@
   dependencies:
     cross-spawn "^6.0.5"
 
-"@expo/styleguide@^3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@expo/styleguide/-/styleguide-3.2.0.tgz#063c50aaf3f0fe4decbe9db3239e3a3ddf769371"
-  integrity sha512-LpUgAdWqbWrW6kQ99LNg4xYOYmvU2FsDkivVm/Xm6cvXFczxWDF/osT6lODTWEnn4UVajMibNwyu81EovLho2A==
+"@expo/styleguide@^3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@expo/styleguide/-/styleguide-3.2.1.tgz#1f4748595d07fe6807dd7aa33d5270bdec0d1f59"
+  integrity sha512-+QAxkRu2rFhOib7zwXOx9ztCpcjToRuEjj3YeaUc1+48MYSc4qAAk0MTXdBuqIJ7Qmz31hmwl060hdiA7vNKBg==
 
 "@hapi/accept@5.0.2":
   version "5.0.2"
@@ -6897,10 +6897,10 @@ prettyjson@^1.2.1:
     colors "^1.1.2"
     minimist "^1.2.0"
 
-prism-react-renderer@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/prism-react-renderer/-/prism-react-renderer-1.0.2.tgz#3bb9a6a42f76fc049b03266298c7068fdd4b7ea9"
-  integrity sha512-0++pJyRfu4v2OxI/Us/5RLui9ESDkTiLkVCtKuPZYdpB8UQWJpnJQhPrWab053XtsKW3oM0sD69uJ6N9exm1Ag==
+prism-react-renderer@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/prism-react-renderer/-/prism-react-renderer-1.2.1.tgz#392460acf63540960e5e3caa699d851264e99b89"
+  integrity sha512-w23ch4f75V1Tnz8DajsYKvY5lF7H1+WvzvLUcF0paFxkTHSp42RS0H5CttdN2Q8RR3DRGZ9v5xD/h3n8C8kGmg==
 
 process-nextick-args@~2.0.0:
   version "2.0.1"
@@ -7094,6 +7094,13 @@ react-dom@^17.0.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     scheduler "^0.20.2"
+
+react-feather@^2.0.9:
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/react-feather/-/react-feather-2.0.9.tgz#6e42072130d2fa9a09d4476b0e61b0ed17814480"
+  integrity sha512-yMfCGRkZdXwIs23Zw/zIWCJO3m3tlaUvtHiXlW+3FH7cIT6fiK1iJ7RJWugXq7Fso8ZaQyUm92/GOOHXvkiVUw==
+  dependencies:
+    prop-types "^15.7.2"
 
 react-is@16.13.1, react-is@^16.12.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.6:
   version "16.13.1"
