@@ -7,10 +7,10 @@ type TableProps = {
   children: React.ReactNode;
 };
 
-export const Table: React.FC<TableProps> = ({ children, headers }) => (
+export const Table = ({ children, headers = [] }: TableProps) => (
   <div css={tableWrapperStyle}>
     <table css={tableStyle}>
-      {headers && headers.length ? (
+      {headers.length ? (
         <thead>
           <Row>
             {headers.map(header => (
@@ -30,15 +30,13 @@ type RowProps = {
   children: React.ReactNode;
 };
 
-export const Row: React.FC<RowProps> = ({ children }) => <tr css={tableRowStyle}>{children}</tr>;
+export const Row = ({ children }: RowProps) => <tr css={tableRowStyle}>{children}</tr>;
 
 type CellProps = {
   children: React.ReactNode;
 };
 
-export const Cell: React.FC<CellProps> = ({ children }) => (
-  <td css={css({ borderBottom: 0 })}>{children}</td>
-);
+export const Cell = ({ children }: CellProps) => <td css={css({ borderBottom: 0 })}>{children}</td>;
 
 const tableWrapperStyle = css({
   borderWidth: 1,
