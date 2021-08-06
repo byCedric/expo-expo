@@ -3,7 +3,7 @@ import { theme, borderRadius } from '@expo/styleguide';
 import React from 'react';
 
 type TableProps = {
-  headers: string[];
+  headers?: string[];
   children: React.ReactNode;
 };
 
@@ -33,7 +33,7 @@ type RowProps = {
 export const Row = ({ children }: RowProps) => <tr css={tableRowStyle}>{children}</tr>;
 
 type CellProps = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 export const Cell = ({ children }: CellProps) => <td css={css({ borderBottom: 0 })}>{children}</td>;
