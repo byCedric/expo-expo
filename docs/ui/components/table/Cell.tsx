@@ -9,5 +9,5 @@ type CellProps = {
 };
 
 export const Cell = ({ children, textAlign }: CellProps) => (
-  <td css={css({ borderBottom: 0, textAlign })}>{children}</td>
+  <td css={css({ borderBottom: 0, verticalAlign: 'middle', textAlign })}>{children}</td>
 );
