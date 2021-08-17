@@ -1,17 +1,20 @@
-import { css, SerializedStyles } from '@emotion/react';
+import { css, SerializedStyles, Theme } from '@emotion/react';
+import { Interpolation } from '@emotion/serialize';
 import { borderRadius, theme } from '@expo/styleguide';
-import React from 'react';
-import { Col } from 'react-grid-system';
+import React, { PropsWithChildren } from 'react';
+import { Col, ColProps } from 'react-grid-system';
 
-type GridCellProps = {
-  children: any;
-  style: SerializedStyles;
-  [props: string]: any;
+type GridCellProps = ColProps & {
+  style?: SerializedStyles | Interpolation<Theme>;
 };
 
-export const GridCell = ({ children, style, md }: GridCellProps) => (
+export const GridCell = ({
+  children,
+  md,
+  style = gridCellDefaultStyle,
+}: PropsWithChildren<GridCellProps>) => (
   <Col css={gridCellWrapperStyle} md={md}>
-    <div css={[gridCellStyle, style, !style && gridCellDefaultStyle]}>{children}</div>
+    <div css={[gridCellStyle, style]}>{children}</div>
   </Col>
 );
 
