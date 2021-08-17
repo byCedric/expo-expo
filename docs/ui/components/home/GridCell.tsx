@@ -69,7 +69,6 @@ const cellIconWrapperStyle = css({
 });
 
 const cellTitleWrapperStyle = css({
-  display: 'flex',
   backgroundColor: theme.background.default,
   padding: 16,
 });
