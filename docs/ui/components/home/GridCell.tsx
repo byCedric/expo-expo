@@ -1,14 +1,21 @@
-import { css, SerializedStyless } from '@emotion/react';
-import { borderRadius, theme } from '@expo/styleguide';
+import { css, SerializedStyles } from '@emotion/react';
+import { borderRadius, theme, colors } from '@expo/styleguide';
 import React, { PropsWithChildren } from 'react';
 import { Col, ColProps } from 'react-grid-system';
 
 import { Link } from '~/ui/components/link';
+import { P } from '~/ui/components/text';
 import { fontStacks } from '~/ui/foundations/typography';
 
 type GridCellProps = ColProps & {
   style?: SerializedStyles;
 };
+
+export const GridCell = ({ children, md, style }: PropsWithChildren<GridCellProps>) => (
+  <Col css={cellWrapperStyle} md={md}>
+    <div css={[cellStyle, style]}>{children}</div>
+  </Col>
+);
 
 type APIGridCellProps = GridCellProps & {
   icon?: string;
@@ -16,26 +23,45 @@ type APIGridCellProps = GridCellProps & {
   link?: string;
 };
 
-export const GridCell = ({ children, md, style = {} }: PropsWithChildren<GridCellProps>) => (
+export const APIGridCell = ({ md, icon, title, link, style }: APIGridCellProps) => (
   <Col css={cellWrapperStyle} md={md}>
-    <div css={[cellStyle, style]}>{children}</div>
+    <div css={[cellStyle, cellAPIStyle, style]}>
+      <div css={cellIconWrapperStyle}>{icon}</div>
+      <div css={cellTitleWrapperStyle}>
+        <Link href={link} css={cellTitleStyle}>
+          {title}
+          <span css={cellTitleArrow}>{'->'}</span>
+        </Link>
+      </div>
+    </div>
   </Col>
 );
 
-export const APIGridCell = ({ md, icon, title, link, style = {} }: APIGridCellProps) => (
+type CommunityGridCellProps = APIGridCellProps & {
+  description?: string;
+  iconBackground?: string;
+};
+
+export const CommunityGridCell = ({
+  md,
+  icon,
+  iconBackground = colors.gray['800'],
+  title,
+  link,
+  description,
+  style,
+}: CommunityGridCellProps) => (
   <Col css={cellWrapperStyle} md={md}>
-    <div css={[cellStyle, cellAPIStyle, style]}>
-      <>
-        <div css={cellIconWrapperStyle}>{icon}</div>
-        {title && link && (
-          <div css={cellTitleWrapperStyle}>
-            <Link href={link} css={cellTitleStyle}>
-              {title}
-              <span css={cellTitleArrow}>{'->'}</span>
-            </Link>
-          </div>
-        )}
-      </>
+    <div css={[cellCommunityStyle, style]}>
+      <div css={[cellCommunityIconWrapperStyle, css({ backgroundColor: iconBackground })]}>
+        {icon}
+      </div>
+      <div>
+        <Link href={link} css={cellCommunityTitleStyle}>
+          {title}
+        </Link>
+        <P css={cellCommunityDescriptionStyle}>{description}</P>
+      </div>
     </div>
   </Col>
 );
@@ -82,3 +108,29 @@ const cellTitleStyle = css({
 });
 
 const cellTitleArrow = css({ float: 'right', fontSize: 18, color: theme.text.secondary });
+
+const cellCommunityStyle = css({
+  display: 'flex',
+  margin: 16,
+  flexDirection: 'row',
+});
+
+const cellCommunityIconWrapperStyle = css({
+  height: 32,
+  width: 32,
+  display: 'flex',
+  justifyContent: 'space-around',
+  alignItems: 'center',
+  borderRadius: borderRadius.large,
+  marginRight: 16,
+});
+
+const cellCommunityTitleStyle = css({
+  fontSize: 16,
+  fontFamily: fontStacks.bold,
+  color: theme.text.default,
+  textDecoration: 'none',
+  marginBottom: 8,
+});
+
+const cellCommunityDescriptionStyle = css({ color: theme.text.secondary, marginTop: 4 });
