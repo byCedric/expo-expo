@@ -78,7 +78,7 @@ export default class Error extends React.Component<object, State> {
         <>
           <Head title="Redirecting" />
           <H1 css={styles.header}>Redirecting</H1>
-          <P css={styles.description}>Just a moment&ellipsis;</P>
+          <P css={styles.description}>Just a moment…</P>
         </>
       );
     } else if (this.state.redirectFailed) {
