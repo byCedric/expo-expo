@@ -122,6 +122,9 @@ const styles = {
     backgroundColor: theme.background.canvas,
   }),
   navigationContainer: css({
+    position: 'absolute',
+    width: '100vw',
+    boxSizing: 'border-box',
     borderBottomWidth: 1,
     borderBottomStyle: 'solid',
     borderBottomColor: theme.border.default,
