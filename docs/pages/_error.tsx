@@ -76,7 +76,7 @@ export default class Error extends React.Component<object, State> {
     if (this.state.redirectPath) {
       return (
         <>
-          <img src="/static/images/404.svg" css={styles.image} alt="Redirect" />
+          <img src="/static/images/redirect.svg" css={styles.image} alt="Redirect" />
           <Head title="Redirecting" />
           <H1 css={styles.header}>Redirecting</H1>
           <P css={styles.description}>Just a moment…</P>
