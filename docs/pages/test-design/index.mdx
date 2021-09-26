@@ -84,7 +84,9 @@ Verify that the installation was successful by running expo whoami. You're not l
 
 ### Example tables
 
-<Table 
+#### Component based
+
+<Table
   headers={['Feature', 'Managed workflow', 'Bare workflow']}
   headersAlign={[null, undefined, TextAlign.Center]}
 >
@@ -104,3 +106,11 @@ Verify that the installation was successful by running expo whoami. You're not l
     <Cell textAlign={TextAlign.Center}><InfoIcon color="green" /></Cell>
   </Row>
 </Table>
+
+#### Markdown based
+
+| Feature | Managed workflow | Bare workflow |
+| --- | --- | --- |
+| Develop apps with only JavaScript/TypeScript | <InfoIcon color="green" /> | |
+| Use Expo build service to create your iOS and Android builds | | <InfoIcon color="green" /> |
+| Develop in Xcode and Android Studio | | <InfoIcon color="green" /> |
