@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { HomeFilledIcon, QuestionMarkIcon, theme, spacing } from '@expo/styleguide';
+import { HomeFilledIcon, theme, spacing } from '@expo/styleguide';
 import React from 'react';
 
 import { Group } from './Group';
@@ -8,7 +8,7 @@ import { RootLink } from './RootLink';
 
 import { Spacer } from '~/ui/components/Spacer';
 import { MenuColumn } from '~/ui/containers/Document';
-import { SDKIcon } from '~/ui/foundations/icons';
+import { FeatureIcon, SDKIcon } from '~/ui/foundations/icons';
 
 type MenuProps = object;
 
@@ -32,7 +32,7 @@ export const Menu = (props: MenuProps) => (
       <RootLink href="/versions/latest" icon={SDKIcon}>
         API reference
       </RootLink>
-      <RootLink href="/versions/latest" icon={QuestionMarkIcon}>
+      <RootLink href="/versions/latest" icon={FeatureIcon}>
         Feature preview
       </RootLink>
     </div>
