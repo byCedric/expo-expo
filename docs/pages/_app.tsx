@@ -8,8 +8,8 @@ import React, { useState, useEffect } from 'react';
 
 import { TrackPageView } from '~/common/analytics';
 import { preprocessSentryError } from '~/common/sentry-utilities';
-import * as markdown from '~/common/translate-markdown';
 import DocumentationElements from '~/components/page-higher-order/DocumentationElements';
+import { MarkdownComponents } from '~/ui/components/Markdown';
 
 import 'react-diff-view/style/index.css';
 import '@expo/styleguide/dist/expo-theme.css';
@@ -26,8 +26,8 @@ const DynamicLoadAnalytics = dynamic<{ id: string }>(() =>
   import('~/common/analytics').then(mod => mod.LoadAnalytics)
 );
 
-const markdownComponents = {
-  ...markdown,
+const MarkdownComponentsWithWrapper = {
+  ...MarkdownComponents,
   wrapper: DocumentationElements,
 };
 
@@ -73,7 +73,7 @@ function App({ Component, pageProps }: AppProps) {
       </Head>
       {shouldLoadAnalytics && <DynamicLoadAnalytics id={googleAnalyticsId} />}
       <ThemeProvider>
-        <MDXProvider components={markdownComponents}>
+        <MDXProvider components={MarkdownComponentsWithWrapper}>
           <Component {...pageProps} />
         </MDXProvider>
       </ThemeProvider>
