@@ -5,6 +5,8 @@ description: Get started with Expo in less than five minutes.
 
 import { Code, Terminal } from '~/ui/components/Snippet';
 import { Select } from '~/ui/components/Form';
+import { Table, Row, Cell, TextAlign } from '~/ui/components/Table';
+import { InfoIcon } from '~/ui/foundations/icons';
 
 Expo is a framework and a platform for universal React applications. It is a set of tools and services built around React Native and native platforms that help you develop, build, deploy, and quickly iterate on iOS, Android, and web apps from the same JavaScript/TypeScript codebase.
 
@@ -26,9 +28,7 @@ Expo CLI is a command line app that is the main interface between a developer an
 
 This is a select
 
-<Select
-options={['Latest (v41.0.0)', 'v40.0.0']}
-/>
+<Select options={['Latest (v41.0.0)', 'v40.0.0']} />
 
 ### Example code snippet
 
@@ -79,3 +79,26 @@ This is some cool CSS.
 <!-- <Terminal cmd={['# Install the command line tools', '', '$ npm install --global expo-cli']} /> -->
 
 Verify that the installation was successful by running expo whoami. You're not logged in yet, so you will see "Not logged in". You can create an account by running expo register if you like, or if you have one already run expo login, but you also don't need an account to get started.
+
+### Example tables
+
+<Table 
+  headers={['Feature', 'Managed workflow', 'Bare workflow']}
+  headersAlign={[null, undefined, TextAlign.Center]}
+>
+  <Row>
+    <Cell>Develop apps with only JavaScript/TypeScript</Cell>
+    <Cell><InfoIcon color="green" /></Cell>
+    <Cell></Cell>
+  </Row>
+  <Row>
+    <Cell>Use Expo build service to create your iOS and Android builds</Cell>
+    <Cell><InfoIcon color="green" /></Cell>
+    <Cell textAlign={TextAlign.Center}><InfoIcon color="green" /></Cell>
+  </Row>
+  <Row>
+    <Cell>Develop in Xcode and Android Studio</Cell>
+    <Cell></Cell>
+    <Cell textAlign={TextAlign.Center}><InfoIcon color="green" /></Cell>
+  </Row>
+</Table>
