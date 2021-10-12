@@ -6,7 +6,7 @@ import React from 'react';
 import { globalExtras } from '~/global-styles/extras';
 import { globalFonts } from '~/global-styles/fonts';
 import { globalNProgress } from '~/global-styles/nprogress';
-import { globalPrism } from '~/global-styles/prism';
+// import { globalPrism } from '~/global-styles/prism';
 import { globalReset } from '~/global-styles/reset';
 import { globalTables } from '~/global-styles/tables';
 import { globalTippy } from '~/global-styles/tippy';
@@ -30,7 +30,7 @@ export default class MyDocument extends Document<{ css?: string }> {
               globalReset,
               globalNProgress,
               globalTables,
-              globalPrism,
+              // globalPrism,
               globalTippy,
               globalExtras,
             ]}
