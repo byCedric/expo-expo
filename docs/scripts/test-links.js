@@ -31,6 +31,10 @@ const externalLinks = [
     const notFound = [];
     const redirectsFailed = [];
 
+    // TODO(cedric): Check if we still need this, and/or upgrade for the new redirect/404 screen
+    /* eslint-disable */
+    return;
+
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
 
