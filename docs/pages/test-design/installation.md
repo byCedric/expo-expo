@@ -1,6 +1,6 @@
 ---
 title: Installation
-subtitle: Get started with Expo in less than five minutes.
+description: Get started with Expo in less than five minutes.
 ---
 
 import TerminalBlock from '~/components/plugins/TerminalBlock';
