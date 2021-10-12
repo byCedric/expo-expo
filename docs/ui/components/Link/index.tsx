@@ -32,11 +32,11 @@ export function Link(props: LinkProps) {
         aria-label={props.ariaLabel}
         css={props.isStyled ? linkStyle : undefined}
         className={props.className}
-        // TODO(cedric): Solve this ts-ignore
+        // TODO(cedric): solve this ts-ignore
         // @ts-ignore
         target={props.target}
         title={props.title}
-        // TODO(cedric): Solve this ts-ignore
+        // TODO(cedric): solve this ts-ignore
         // @ts-ignore
         rel={props.target === '_blank' && !props.rel ? 'noopener' : props.rel}
         style={props.style}
