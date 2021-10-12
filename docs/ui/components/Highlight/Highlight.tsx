@@ -1,5 +1,7 @@
 import { css } from '@emotion/react';
-import PrismHighlight, { defaultProps, Language, PrismTheme } from 'prism-react-renderer';
+import PrismHighlight, { Language, PrismTheme } from 'prism-react-renderer';
+// @ts-ignore
+import Prism from 'prism-react-renderer/prism';
 import React from 'react';
 
 import { expoTheme } from './themes/expo';
@@ -28,7 +30,7 @@ export const Highlight = (props: HighlightProps) => {
 
   return (
     <PrismHighlight
-      {...defaultProps}
+      Prism={Prism}
       theme={theme || expoTheme}
       code={withLastLine ? children : children.trim()}
       language={language}>

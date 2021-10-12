@@ -65,6 +65,7 @@ module.exports = {
           options: {
             remarkPlugins: [
               [require('remark-frontmatter'), ['yaml']],
+              require('remark-slug'),
               require('./mdx-plugins/remark-export-yaml'),
               require('./mdx-plugins/remark-export-headings'),
               require('./mdx-plugins/remark-link-rewrite'),

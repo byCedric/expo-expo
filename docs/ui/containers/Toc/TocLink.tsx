@@ -14,7 +14,7 @@ export const TocLink = ({ depth, isActive, ...rest }: TocLinkProps) => (
   <Link
     {...rest}
     css={[linkStyle, isActive && { color: theme.text.default }]}
-    style={{ paddingLeft: depth * spacing[4] }}
+    style={{ paddingLeft: (depth - 1) * spacing[4] }}
   />
 );
 
@@ -22,6 +22,6 @@ const linkStyle = css`
   ${textStyles.psmall}
   color: ${theme.text.secondary};
   text-decoration: none;
-  display: inline-block;
+  display: block;
   padding: ${spacing[1]}px 0;
 `;

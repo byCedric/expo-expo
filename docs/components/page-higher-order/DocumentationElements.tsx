@@ -22,8 +22,10 @@ export default function DocumentationElements(props: DocumentationElementsProps)
   return (
     <HeadingsContext.Provider value={manager}>
       <DocumentationPage
+        meta={props.meta}
         title={props.meta.title || ''}
         description={props.meta.description}
+        headings={props.headings || []}
         url={router}
         asPath={router.asPath}
         sourceCodeUrl={props.meta.sourceCodeUrl}

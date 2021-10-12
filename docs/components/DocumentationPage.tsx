@@ -18,7 +18,7 @@ import Head from '~/components/Head';
 import navigation from '~/constants/navigation';
 import * as Constants from '~/constants/theme';
 import { VERSIONS } from '~/constants/versions';
-import { NavigationRoute, Url } from '~/types/common';
+import { NavigationRoute, RemarkHeading, Url, PageMetadata } from '~/types/common';
 import { PageHeader } from '~/ui/components/PageHeader';
 import { Menu } from '~/ui/containers/Menu';
 import { Navigation } from '~/ui/containers/Navigation';
@@ -55,9 +55,11 @@ type Props = {
   url: Url;
   title: string;
   description?: string;
+  headings: RemarkHeading[];
   asPath: string;
   sourceCodeUrl?: string;
   tocVisible: boolean;
+  meta: PageMetadata;
   /* If the page should not show up in the Algolia Docsearch results */
   hideFromSearch?: boolean;
 };
@@ -273,7 +275,14 @@ export default class DocumentationPage extends React.Component<Props, State> {
     const sidebarRight = <DocumentationSidebarRight ref={this.sidebarRightRef} />;
     */
 
-    const sidebarRight = <Toc />;
+    const sidebarRight = this.props.headings.length ? (
+      <Toc
+        headings={this.props.headings}
+        maxDepth={this.props.meta.maxHeadingDepth}
+        // @ts-ignore
+        scrollRef={this.layoutRef}
+      />
+    ) : null;
 
     const algoliaTag = this.getAlgoliaTag();
 
