@@ -43,7 +43,9 @@ export const replaceVersionInUrl = (url: string, replaceWith: string) => {
 };
 
 export const getVersionFromUrl = (url: string) => {
-  return url.split('/')[2];
+  if (url.startsWith('/versions')) {
+    return url.split('/')[2];
+  }
 };
 
 /**
