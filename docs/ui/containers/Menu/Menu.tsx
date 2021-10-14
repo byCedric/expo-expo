@@ -26,13 +26,13 @@ type MenuProps = object;
 export const Menu = (props: MenuProps) => (
   <MenuColumn css={{ padding: '1rem' }}>
     <div css={rootSectionStyle}>
-      <RootLink href="/" icon={HomeFilledIcon} isActive>
+      <RootLink href="/test-design/home" icon={HomeFilledIcon} isActive>
         Home
       </RootLink>
       <RootLink href="/versions/latest" icon={SDKIcon}>
         API reference
       </RootLink>
-      <RootLink href="/versions/latest" icon={FeatureIcon}>
+      <RootLink href="/feature-preview" icon={FeatureIcon}>
         Feature preview
       </RootLink>
     </div>
