@@ -8,13 +8,14 @@ import { Container, Row } from 'react-grid-system';
 import { colors, theme } from '@expo/styleguide';
 
 import { APIGridCell, CommunityGridCell, GridCell, HomeButton } from '~/ui/components/Home';
+import { APICameraIcon, APIListIcon, APIMapsIcon, APINotificationsIcon } from "~/ui/components/Home/APIIcons";
 import { CodecademyImage } from '~/ui/components/Home/CodecademyImage';
 import { DevicesImage } from '~/ui/components/Home/DevicesImage';
 import { SnackImage } from '~/ui/components/Home/SnackImage';
 import { WhyImage } from '~/ui/components/Home/WhyImage';
 import { Button } from '~/ui/components/Button';
 import { H3, P } from '~/ui/components/Text';
-import { APICameraIcon, APIListIcon, APIMapsIcon, APINotificationsIcon, DiscordIcon, ForumsIcon, GitHubIcon, SDKIcon, TwitterIcon } from "~/ui/foundations/icons";
+import { DiscordIcon, ForumsIcon, GitHubIcon, SDKIcon, TwitterIcon } from "~/ui/foundations/icons";
 import { fontStacks } from '~/ui/foundations/typography';
 
 <!-- https://github.com/sealninja/react-grid-system/issues/175 -->
@@ -22,8 +23,14 @@ import { fontStacks } from '~/ui/foundations/typography';
   <Row>
     <GridCell xl={9} md={8} style={{ backgroundColor: colors.primary['100'] }}>
       <DevicesImage />
-      <H3 style={{ color: colors.primary['900'] }}>Create a universal iOS, Android, and<br/>web photo sharing app</H3>
-      <HomeButton style={{ color: colors.primary['100'] }}>
+      <H3 style={{ color: colors.primary['900'] }}>
+        Create a universal iOS, Android, and<br/>
+        web photo sharing app
+      </H3>
+      <HomeButton
+       style={{ color: colors.primary['100'] }}
+       href="/tutorial/planning/"
+      >
         Start Tutorial
       </HomeButton>
     </GridCell>
@@ -35,14 +42,22 @@ import { fontStacks } from '~/ui/foundations/typography';
     <GridCell md={4} style={{ backgroundColor: colors.blue['000'] }}>
       <SnackImage />
       <H3 style={{ color: colors.blue['900'] }}>Try Snack</H3>
-      <P style={{ color: colors.blue['900'], fontSize: 14 }}>Snack lets you try Expo with zero local setup.</P>
-      <HomeButton style={{ backgroundColor: colors.blue['500'], color: colors.blue['100'] }}>
+      <P style={{ color: colors.blue['900'], fontSize: 14 }}>
+        Snack lets you try Expo with zero local setup.
+      </P>
+      <HomeButton
+        style={{ backgroundColor: colors.blue['500'], color: colors.blue['100'] }}
+        href="https://snack.expo.dev/"
+        target="_new"
+      >
         Create a Snack
       </HomeButton>
     </GridCell>
     <GridCell md={4} style={{ backgroundColor: colors.orange['100'] }}>
       <CodecademyImage />
-      <H3 style={{ color: colors.orange['900'] }}>Learn Expo on Codecademy</H3>
+      <H3 style={{ color: colors.orange['900'] }}>
+        Learn Expo on Codecademy
+      </H3>
       <HomeButton style={{ backgroundColor: colors.orange['800'], color: colors.orange['100'] }}>
         Start Course
       </HomeButton>
@@ -69,10 +84,10 @@ import { fontStacks } from '~/ui/foundations/typography';
 
 <Container fluid style={{ paddingLeft: -15, paddingRight: -15 }}>
   <Row>
-    <APIGridCell md={3} title="Maps" link="/versions/latest/sdk/map-view" icon={<APIMapsIcon size={70} />} />
-    <APIGridCell md={3} title="Camera" link="/versions/latest/sdk/camera" icon={<APICameraIcon size={70} />} />
-    <APIGridCell md={3} title="Notifications" link="/versions/latest/sdk/notifications" icon={<APINotificationsIcon size={70} />} />
-    <APIGridCell md={3} title="View all APIs" link="/versions/latest/" icon={<APIListIcon size={70} />} />
+    <APIGridCell title="Maps" link="/versions/latest/sdk/map-view" icon={<APIMapsIcon size={70} />} />
+    <APIGridCell title="Camera" link="/versions/latest/sdk/camera" icon={<APICameraIcon size={70} />} />
+    <APIGridCell title="Notifications" link="/versions/latest/sdk/notifications" icon={<APINotificationsIcon size={70} />} />
+    <APIGridCell title="View all APIs" link="/versions/latest/" icon={<APIListIcon size={70} />} />
   </Row>
 </Container>
 

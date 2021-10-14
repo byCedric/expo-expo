@@ -44,7 +44,7 @@ export const APIGridCell = ({
   link,
   style,
   sm = 6,
-  md = 6,
+  md = 3,
   xl = 3,
 }: APIGridCellProps) => (
   <Col css={cellWrapperStyle} md={md} sm={sm} xl={xl}>
