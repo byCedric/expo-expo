@@ -4,8 +4,8 @@ export const SnackImage = () => (
   <svg
     style={{
       position: 'absolute',
-      right: 32,
-      bottom: 32,
+      right: 16,
+      bottom: 16,
     }}
     width="80"
     height="81"

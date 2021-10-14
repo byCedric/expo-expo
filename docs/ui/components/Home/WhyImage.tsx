@@ -4,8 +4,8 @@ export const WhyImage = () => (
   <svg
     style={{
       position: 'absolute',
-      right: 32,
-      bottom: 32,
+      right: 16,
+      bottom: 16,
     }}
     width="135"
     height="77"

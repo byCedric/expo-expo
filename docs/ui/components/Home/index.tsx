@@ -92,7 +92,6 @@ export const CommunityGridCell = ({
 const cellWrapperStyle = css`
   padding-left: 0 !important;
   padding-right: 0 !important;
-  position: relative;
 `;
 
 const cellStyle = css({
@@ -100,6 +99,8 @@ const cellStyle = css({
   margin: 16,
   padding: 32,
   minHeight: 200,
+  overflow: 'hidden',
+  position: 'relative',
 });
 
 const cellAPIStyle = css({

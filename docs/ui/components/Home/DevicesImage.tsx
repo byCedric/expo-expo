@@ -1,12 +1,24 @@
+import { css } from '@emotion/react';
 import React from 'react';
+
+import { breakpoints } from '~/ui/foundations/breakpoints';
 
 export const DevicesImage = () => (
   <svg
-    style={{
-      position: 'absolute',
-      right: 16,
-      bottom: 16,
-    }}
+    css={css(`
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      max-width: 60%;
+      
+      @media screen and (max-width: ${breakpoints.maxWithGutters}px) {
+        bottom: -16px;
+      }
+      
+      @media screen and (max-width: ${breakpoints.mobileWithGutters}px) {
+        bottom: -32px;
+      }
+    `)}
     width="354"
     height="164"
     viewBox="0 0 354 164"
