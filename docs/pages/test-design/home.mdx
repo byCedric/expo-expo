@@ -10,7 +10,7 @@ import { colors, theme } from '@expo/styleguide';
 import { APIGridCell, CommunityGridCell, GridCell } from '~/ui/components/home/GridCell';
 import { Button } from '~/ui/components/Button';
 import { H3, P } from '~/ui/components/Text';
-import { DiscordIcon, ForumsIcon, GitHubIcon, SDKIcon, TwitterIcon } from "~/ui/foundations/icons";
+import { APICameraIcon, APIListIcon, APIMapsIcon, APINotificationsIcon, DiscordIcon, ForumsIcon, GitHubIcon, SDKIcon, TwitterIcon } from "~/ui/foundations/icons";
 import { fontStacks } from '~/ui/foundations/typography';
 
 <!-- https://github.com/sealninja/react-grid-system/issues/175 -->
@@ -59,10 +59,10 @@ import { fontStacks } from '~/ui/foundations/typography';
 
 <Container fluid style={{ paddingLeft: -15, paddingRight: -15 }}>
   <Row>
-    <APIGridCell md={3} title="Maps" link="/versions/latest/sdk/map-view" icon={<SDKIcon size={58} />} />
-    <APIGridCell md={3} title="Camera" link="/versions/latest/sdk/camera" icon={<SDKIcon size={58} />} />
-    <APIGridCell md={3} title="Notifications" link="/versions/latest/sdk/notifications" icon={<SDKIcon size={58} />} />
-    <APIGridCell md={3} title="View all APIs" link="/versions/latest/" icon={<SDKIcon size={58} />} />
+    <APIGridCell md={3} title="Maps" link="/versions/latest/sdk/map-view" icon={<APIMapsIcon size={70} />} />
+    <APIGridCell md={3} title="Camera" link="/versions/latest/sdk/camera" icon={<APICameraIcon size={70} />} />
+    <APIGridCell md={3} title="Notifications" link="/versions/latest/sdk/notifications" icon={<APINotificationsIcon size={70} />} />
+    <APIGridCell md={3} title="View all APIs" link="/versions/latest/" icon={<APIListIcon size={70} />} />
   </Row>
 </Container>
 
