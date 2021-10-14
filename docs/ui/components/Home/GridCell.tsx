@@ -11,8 +11,8 @@ type GridCellProps = ColProps & {
   style?: SerializedStyles;
 };
 
-export const GridCell = ({ children, md, style }: PropsWithChildren<GridCellProps>) => (
-  <Col css={cellWrapperStyle} md={md}>
+export const GridCell = ({ children, sm, md, xl, style }: PropsWithChildren<GridCellProps>) => (
+  <Col css={cellWrapperStyle} sm={sm} md={md} xl={xl}>
     <div css={[cellStyle, style]}>{children}</div>
   </Col>
 );
@@ -23,8 +23,16 @@ type APIGridCellProps = GridCellProps & {
   link?: string;
 };
 
-export const APIGridCell = ({ md, icon, title, link, style }: APIGridCellProps) => (
-  <Col css={cellWrapperStyle} md={md}>
+export const APIGridCell = ({
+  icon,
+  title,
+  link,
+  style,
+  sm = 6,
+  md = 6,
+  xl = 3,
+}: APIGridCellProps) => (
+  <Col css={cellWrapperStyle} md={md} sm={sm} xl={xl}>
     <div css={[cellStyle, cellAPIStyle, style]}>
       <div css={cellIconWrapperStyle}>{icon}</div>
       <div css={cellTitleWrapperStyle}>
@@ -43,13 +51,13 @@ type CommunityGridCellProps = APIGridCellProps & {
 };
 
 export const CommunityGridCell = ({
-  md,
   icon,
   iconBackground = colors.gray['800'],
   title,
   link,
   description,
   style,
+  md = 6,
 }: CommunityGridCellProps) => (
   <Col css={cellWrapperStyle} md={md}>
     <div css={[cellCommunityStyle, style]}>
@@ -69,6 +77,7 @@ export const CommunityGridCell = ({
 const cellWrapperStyle = css`
   padding-left: 0 !important;
   padding-right: 0 !important;
+  position: relative;
 `;
 
 const cellStyle = css({
@@ -118,8 +127,9 @@ const cellCommunityStyle = css({
 const cellCommunityIconWrapperStyle = css({
   height: 32,
   width: 32,
+  minWidth: 32,
   display: 'flex',
-  justifyContent: 'space-around',
+  justifyContent: 'center',
   alignItems: 'center',
   borderRadius: borderRadius.large,
   marginRight: 16,
