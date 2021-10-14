@@ -7,7 +7,7 @@ hideTOC: true
 import { Container, Row } from 'react-grid-system';
 import { colors, theme } from '@expo/styleguide';
 
-import { APIGridCell, CommunityGridCell, GridCell } from '~/ui/components/home/GridCell';
+import { APIGridCell, CommunityGridCell, GridCell, HomeButton } from '~/ui/components/Home';
 import { Button } from '~/ui/components/Button';
 import { H3, P } from '~/ui/components/Text';
 import { APICameraIcon, APIListIcon, APIMapsIcon, APINotificationsIcon, DiscordIcon, ForumsIcon, GitHubIcon, SDKIcon, TwitterIcon } from "~/ui/foundations/icons";
@@ -18,9 +18,9 @@ import { fontStacks } from '~/ui/foundations/typography';
   <Row>
     <GridCell xl={9} md={8} style={{ backgroundColor: colors.primary['100'] }}>
       <H3 style={{ color: colors.primary['900'] }}>Create a universal iOS, Android, and web photo sharing app</H3>
-      <Button style={{ color: colors.primary['100'], fontSize: 15, height: 36, position: 'absolute', bottom: 40 }}>
+      <HomeButton style={{ color: colors.primary['100'] }}>
         Start Tutorial
-      </Button>
+      </HomeButton>
     </GridCell>
     <GridCell xl={3} md={4} style={{ backgroundColor: colors.gray['1000']}}>
       <H3 style={{ color: colors.gray['000']}}>Quick Start</H3>
@@ -30,23 +30,23 @@ import { fontStacks } from '~/ui/foundations/typography';
     <GridCell md={4} style={{ backgroundColor: colors.blue['000'] }}>
       <H3 style={{ color: colors.blue['900'] }}>Try Snack</H3>
       <P style={{ color: colors.blue['900'], fontSize: 14 }}>Snack lets you try Expo with zero local setup.</P>
-      <Button style={{ backgroundColor: colors.blue['500'], color: colors.blue['100'], fontSize: 15, height: 36, position: 'absolute', bottom: 40 }}>
+      <HomeButton style={{ backgroundColor: colors.blue['500'], color: colors.blue['100'] }}>
         Create a Snack
-      </Button>
+      </HomeButton>
     </GridCell>
     <GridCell md={4} style={{ backgroundColor: colors.orange['100'] }}>
       <H3 style={{ color: colors.orange['900'] }}>Learn Expo on Codecademy</H3>
-      <Button style={{ backgroundColor: colors.orange['800'], color: colors.orange['100'], fontSize: 15, height: 36, position: 'absolute', bottom: 40 }}>
+      <HomeButton style={{ backgroundColor: colors.orange['800'], color: colors.orange['100'] }}>
         Start Course
-      </Button>
+      </HomeButton>
     </GridCell>
     <GridCell md={4} style={{ backgroundColor: colors.green['000'] }}>
       <H3 style={{ color: colors.green['900'] }}>
         Why<br/><span style={{ fontFamily: fontStacks.light, fontStyle: 'italic' }}>and why</span><br/>not Expo
       </H3>
-      <Button style={{ backgroundColor: colors.green['700'], color: colors.green['000'], fontSize: 15, height: 36, position: 'absolute', bottom: 40 }}>
+      <HomeButton style={{ backgroundColor: colors.green['700'], color: colors.green['000'] }}>
         Read
-      </Button>
+      </HomeButton>
     </GridCell>
   </Row>
 </Container>

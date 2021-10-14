@@ -3,9 +3,24 @@ import { borderRadius, theme, colors } from '@expo/styleguide';
 import React, { PropsWithChildren } from 'react';
 import { Col, ColProps } from 'react-grid-system';
 
+import { Button, ButtonProps } from '~/ui/components/Button';
 import { Link } from '~/ui/components/Link';
 import { P } from '~/ui/components/Text';
 import { fontStacks } from '~/ui/foundations/typography';
+
+export const HomeButton = ({ children, style, ...rest }: ButtonProps) => (
+  <Button
+    {...rest}
+    style={{
+      ...style,
+      fontSize: 15,
+      height: 36,
+      position: 'absolute',
+      bottom: 40,
+    }}>
+    {children}
+  </Button>
+);
 
 type GridCellProps = ColProps & {
   style?: SerializedStyles;
