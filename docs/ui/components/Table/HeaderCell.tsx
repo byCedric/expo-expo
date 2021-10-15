@@ -6,13 +6,10 @@ import { TextAlign } from '~/ui/components/Table/Table.shared';
 
 type HeaderCellProps = {
   textAlign?: TextAlign;
-  key?: string | number;
 };
 
-export const HeaderCell = ({ children, textAlign, key }: PropsWithChildren<HeaderCellProps>) => (
-  <th key={key} css={[tableHeadersCellStyle, textAlign && { textAlign }]}>
-    {children}
-  </th>
+export const HeaderCell = ({ children, textAlign }: PropsWithChildren<HeaderCellProps>) => (
+  <th css={[tableHeadersCellStyle, textAlign && { textAlign }]}>{children}</th>
 );
 
 const tableHeadersCellStyle = css({

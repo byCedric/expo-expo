@@ -13,7 +13,9 @@ export const TableHead = ({ headers, headersAlign }: TableHeadProps) => (
   <thead>
     <Row>
       {headers.map((header, i) => (
-        <HeaderCell key={i} textAlign={(headersAlign && headersAlign[i]) || TextAlign.Left}>
+        <HeaderCell
+          key={`table-header-${i}`}
+          textAlign={(headersAlign && headersAlign[i]) || TextAlign.Left}>
           {header}
         </HeaderCell>
       ))}
