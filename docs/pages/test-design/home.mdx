@@ -13,7 +13,9 @@ import { CodecademyImage } from '~/ui/components/Home/CodecademyImage';
 import { DevicesImage } from '~/ui/components/Home/DevicesImage';
 import { SnackImage } from '~/ui/components/Home/SnackImage';
 import { WhyImage } from '~/ui/components/Home/WhyImage';
+
 import { Button } from '~/ui/components/Button';
+import { Terminal } from '~/ui/components/Snippet';
 import { H3, P } from '~/ui/components/Text';
 import { DiscordIcon, ForumsIcon, GitHubIcon, SDKIcon, TwitterIcon } from "~/ui/foundations/icons";
 import { fontStacks } from '~/ui/foundations/typography';
@@ -36,6 +38,11 @@ import { fontStacks } from '~/ui/foundations/typography';
     </GridCell>
     <GridCell xl={3} md={4} style={{ backgroundColor: colors.gray['1000']}}>
       <H3 style={{ color: colors.gray['000']}}>⚡ Quick Start</H3>
+      <Terminal
+        style={{ position: 'absolute', bottom: 16, left: 20, right: 0, boxShadow: '0 0 12px rgba(0, 0, 0, .4)' }}
+        cmd={['$ npm i -g expo-cli']}
+        cmdCopy={'npm install --global expo-cli'}
+      />
     </GridCell>
   </Row>
   <Row>
@@ -59,7 +66,11 @@ import { fontStacks } from '~/ui/foundations/typography';
         Learn Expo on<br/>
         Codecademy
       </H3>
-      <HomeButton style={{ backgroundColor: colors.orange['800'], color: colors.orange['100'] }}>
+      <HomeButton
+        style={{ backgroundColor: colors.orange['800'], color: colors.orange['100'] }}
+        href="https://www.codecademy.com/learn/learn-react-native"
+        target="_new"
+      >
         Start Course
       </HomeButton>
     </GridCell>
