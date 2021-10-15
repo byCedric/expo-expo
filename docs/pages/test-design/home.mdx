@@ -39,7 +39,7 @@ import { fontStacks } from '~/ui/foundations/typography';
     <GridCell xl={3} md={4} style={{ backgroundColor: colors.gray['1000']}}>
       <H3 style={{ color: colors.gray['000']}}>⚡ Quick Start</H3>
       <Terminal
-        style={{ position: 'absolute', bottom: 16, left: 20, right: 0, boxShadow: '0 0 12px rgba(0, 0, 0, .4)' }}
+        style={{ position: 'absolute', bottom: 24, left: 20, right: 20, boxShadow: '0 0 12px rgba(0, 0, 0, .4)', marginBottom: 0 }}
         cmd={['$ npm i -g expo-cli']}
         cmdCopy={'npm install --global expo-cli'}
       />
@@ -50,7 +50,7 @@ import { fontStacks } from '~/ui/foundations/typography';
       <SnackImage />
       <H3 style={{ color: colors.blue['900'] }}>Try Snack</H3>
       <P style={{ color: colors.blue['900'], fontSize: 14 }}>
-        Snack lets you try Expo with zero local setup.
+        Snack lets you try Expo<br/>with zero local setup.
       </P>
       <HomeButton
         style={{ backgroundColor: colors.blue['500'], color: colors.blue['100'] }}

@@ -15,8 +15,10 @@ export const HomeButton = ({ children, style, ...rest }: ButtonProps) => (
       ...style,
       fontSize: 15,
       height: 36,
+      paddingLeft: 12,
+      paddingRight: 12,
       position: 'absolute',
-      bottom: 40,
+      bottom: 28,
     }}>
     {children}
   </Button>
