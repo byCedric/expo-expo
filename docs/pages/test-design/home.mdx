@@ -39,6 +39,7 @@ import { fontStacks } from '~/ui/foundations/typography';
     <GridCell xl={3} md={4} style={{ backgroundColor: colors.gray['1000']}}>
       <H3 style={{ color: colors.gray['000']}}>⚡ Quick Start</H3>
       <Terminal
+        hideOverflow
         style={{ position: 'absolute', bottom: 24, left: 20, right: 20, boxShadow: '0 0 12px rgba(0, 0, 0, .4)', marginBottom: 0 }}
         cmd={['$ npm i -g expo-cli']}
         cmdCopy={'npm install --global expo-cli'}

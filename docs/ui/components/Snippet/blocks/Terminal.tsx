@@ -12,6 +12,7 @@ import { CODE } from '~/ui/components/Text';
 type TerminalProps = {
   cmd: string[];
   cmdCopy?: string;
+  hideOverflow?: boolean;
   style?: SerializedStyles;
   title?: string;
 };
@@ -21,12 +22,20 @@ type TerminalProps = {
 // - [x] Make prefix and comments unselectable? (maybe obsolete with the copy to clipboard)
 // - [ ] Add "Copy" button with feedback
 
-export const Terminal = ({ cmd, cmdCopy, style, title = 'Terminal' }: TerminalProps) => (
+export const Terminal = ({
+  cmd,
+  cmdCopy,
+  hideOverflow,
+  style,
+  title = 'Terminal',
+}: TerminalProps) => (
   <Snippet style={style}>
     <SnippetHeader alwaysDark title={title}>
       {!!cmdCopy && <CopyAction alwaysDark text={cmdCopy} />}
     </SnippetHeader>
-    <SnippetContent alwaysDark>{cmd.map(cmdMapper)}</SnippetContent>
+    <SnippetContent alwaysDark hideOverflow={hideOverflow}>
+      {cmd.map(cmdMapper)}
+    </SnippetContent>
   </Snippet>
 );
 

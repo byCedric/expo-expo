@@ -4,10 +4,17 @@ import React, { PropsWithChildren } from 'react';
 
 type SnippetContentProps = PropsWithChildren<{
   alwaysDark?: boolean;
+  hideOverflow?: boolean;
 }>;
 
-export const SnippetContent = ({ children, alwaysDark = false }: SnippetContentProps) => (
-  <div css={[contentStyle, alwaysDark && contentDarkStyle]}>{children}</div>
+export const SnippetContent = ({
+  children,
+  alwaysDark = false,
+  hideOverflow = false,
+}: SnippetContentProps) => (
+  <div css={[contentStyle, alwaysDark && contentDarkStyle, hideOverflow && contentHideOverflow]}>
+    {children}
+  </div>
 );
 
 const contentStyle = css`
@@ -28,4 +35,12 @@ const contentDarkStyle = css`
   background-color: ${darkTheme.background.secondary};
   border-color: transparent;
   white-space: nowrap;
+`;
+
+const contentHideOverflow = css`
+  overflow: hidden;
+
+  code {
+    white-space: nowrap;
+  }
 `;
