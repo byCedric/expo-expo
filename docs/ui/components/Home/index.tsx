@@ -3,16 +3,33 @@ import { borderRadius, theme, colors } from '@expo/styleguide';
 import React, { PropsWithChildren } from 'react';
 import { Col, ColProps } from 'react-grid-system';
 
+import { Button, ButtonProps } from '~/ui/components/Button';
 import { Link } from '~/ui/components/Link';
 import { P } from '~/ui/components/Text';
 import { fontStacks } from '~/ui/foundations/typography';
+
+export const HomeButton = ({ children, style, ...rest }: ButtonProps) => (
+  <Button
+    {...rest}
+    style={{
+      ...style,
+      fontSize: 15,
+      height: 36,
+      paddingLeft: 12,
+      paddingRight: 12,
+      position: 'absolute',
+      bottom: 28,
+    }}>
+    {children}
+  </Button>
+);
 
 type GridCellProps = ColProps & {
   style?: SerializedStyles;
 };
 
-export const GridCell = ({ children, md, style }: PropsWithChildren<GridCellProps>) => (
-  <Col css={cellWrapperStyle} md={md}>
+export const GridCell = ({ children, sm, md, xl, style }: PropsWithChildren<GridCellProps>) => (
+  <Col css={cellWrapperStyle} sm={sm} md={md} xl={xl}>
     <div css={[cellStyle, style]}>{children}</div>
   </Col>
 );
@@ -23,8 +40,16 @@ type APIGridCellProps = GridCellProps & {
   link?: string;
 };
 
-export const APIGridCell = ({ md, icon, title, link, style }: APIGridCellProps) => (
-  <Col css={cellWrapperStyle} md={md}>
+export const APIGridCell = ({
+  icon,
+  title,
+  link,
+  style,
+  sm = 6,
+  md = 3,
+  xl = 3,
+}: APIGridCellProps) => (
+  <Col css={cellWrapperStyle} md={md} sm={sm} xl={xl}>
     <div css={[cellStyle, cellAPIStyle, style]}>
       <div css={cellIconWrapperStyle}>{icon}</div>
       <div css={cellTitleWrapperStyle}>
@@ -43,13 +68,13 @@ type CommunityGridCellProps = APIGridCellProps & {
 };
 
 export const CommunityGridCell = ({
-  md,
   icon,
   iconBackground = colors.gray['800'],
   title,
   link,
   description,
   style,
+  md = 6,
 }: CommunityGridCellProps) => (
   <Col css={cellWrapperStyle} md={md}>
     <div css={[cellCommunityStyle, style]}>
@@ -76,6 +101,8 @@ const cellStyle = css({
   margin: 16,
   padding: 32,
   minHeight: 200,
+  overflow: 'hidden',
+  position: 'relative',
 });
 
 const cellAPIStyle = css({
@@ -118,8 +145,9 @@ const cellCommunityStyle = css({
 const cellCommunityIconWrapperStyle = css({
   height: 32,
   width: 32,
+  minWidth: 32,
   display: 'flex',
-  justifyContent: 'space-around',
+  justifyContent: 'center',
   alignItems: 'center',
   borderRadius: borderRadius.large,
   marginRight: 16,

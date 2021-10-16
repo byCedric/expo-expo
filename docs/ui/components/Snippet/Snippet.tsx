@@ -1,8 +1,12 @@
-import { css } from '@emotion/react';
+import { css, SerializedStyles } from '@emotion/react';
 import React, { PropsWithChildren } from 'react';
 
-export const Snippet = ({ children }: PropsWithChildren<object>) => (
-  <div css={containerStyle}>{children}</div>
+type SnippetProps = {
+  style?: SerializedStyles;
+};
+
+export const Snippet = ({ children, style }: PropsWithChildren<SnippetProps>) => (
+  <div css={[containerStyle, css(style)]}>{children}</div>
 );
 
 const containerStyle = css`

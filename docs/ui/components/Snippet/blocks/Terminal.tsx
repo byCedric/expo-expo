@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { css, SerializedStyles } from '@emotion/react';
 import { darkTheme } from '@expo/styleguide';
 import React from 'react';
 
@@ -12,6 +12,8 @@ import { CODE } from '~/ui/components/Text';
 type TerminalProps = {
   cmd: string[];
   cmdCopy?: string;
+  hideOverflow?: boolean;
+  style?: SerializedStyles;
   title?: string;
 };
 
@@ -20,12 +22,20 @@ type TerminalProps = {
 // - [x] Make prefix and comments unselectable? (maybe obsolete with the copy to clipboard)
 // - [ ] Add "Copy" button with feedback
 
-export const Terminal = ({ cmd, cmdCopy, title = 'Terminal' }: TerminalProps) => (
-  <Snippet>
+export const Terminal = ({
+  cmd,
+  cmdCopy,
+  hideOverflow,
+  style,
+  title = 'Terminal',
+}: TerminalProps) => (
+  <Snippet style={style}>
     <SnippetHeader alwaysDark title={title}>
       {!!cmdCopy && <CopyAction alwaysDark text={cmdCopy} />}
     </SnippetHeader>
-    <SnippetContent alwaysDark>{cmd.map(cmdMapper)}</SnippetContent>
+    <SnippetContent alwaysDark hideOverflow={hideOverflow}>
+      {cmd.map(cmdMapper)}
+    </SnippetContent>
   </Snippet>
 );
 
@@ -54,9 +64,8 @@ function cmdMapper(line: string, index: number) {
 
   if (line.startsWith('$')) {
     return (
-      <>
+      <div key={key}>
         <CODE
-          key={`${key}-prefix`}
           css={[
             codeStyle,
             unselectableStyle,
@@ -64,10 +73,8 @@ function cmdMapper(line: string, index: number) {
           ]}>
           $&nbsp;
         </CODE>
-        <CODE key={key} css={[codeStyle, { display: 'inline' }]}>
-          {line.substring(1).trim()}
-        </CODE>
-      </>
+        <CODE css={[codeStyle, { display: 'inline' }]}>{line.substring(1).trim()}</CODE>
+      </div>
     );
   }
 
