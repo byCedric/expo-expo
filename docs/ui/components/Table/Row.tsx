@@ -15,7 +15,7 @@ const tableRowStyle = css({
   '&:last-child': {
     borderWidth: 0,
   },
-  '&:nth-child(2n)': {
+  '&:nth-of-type(2n)': {
     backgroundColor: theme.background.secondary,
   },
 });
