@@ -18,6 +18,7 @@ const STYLES_INPUT = css`
   width: 100%;
   // Current doc container max-width - padding, to match page max width
   max-width: calc(1200px - (56px * 2));
+  margin-left: -21px;
 
   .searchbox {
     width: auto;
@@ -164,12 +165,8 @@ export class Search extends React.Component<Props> {
         const url = new URL(suggestion.url);
         const route = this.processUrl(url.pathname + url.hash);
 
-        let asPath;
         if (Utilities.isVersionedUrl(suggestion.url) && this.props.version === 'latest') {
-          asPath = this.processUrl(Utilities.replaceVersionInUrl(route, 'latest'));
-        }
-
-        if (asPath) {
+          const asPath = this.processUrl(Utilities.replaceVersionInUrl(route, 'latest'));
           Router.push(route, asPath);
         } else {
           Router.push(route);
