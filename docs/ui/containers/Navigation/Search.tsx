@@ -60,6 +60,7 @@ const STYLES_INPUT = css`
     align-items: center;
     justify-content: center;
     pointer-events: none;
+    z-index: 102;
   }
 
   .search {
@@ -73,7 +74,7 @@ const STYLES_INPUT = css`
     align-items: center;
     justify-content: center;
     pointer-events: none;
-    z-index: 1;
+    z-index: 102;
   }
 `;
 
@@ -121,6 +122,7 @@ export class Search extends React.Component<Props> {
 
   state = {
     isFocused: false,
+    isDropdownVisible: false,
   };
 
   private processUrl(url: string) {
@@ -211,6 +213,7 @@ export class Search extends React.Component<Props> {
   }
 
   render() {
+    const { isFocused, isDropdownVisible } = this.state;
     return (
       <div
         css={[STYLES_INPUT, !this.props.hiddenOnMobile && STYLES_INPUT_MOBILE]}
@@ -222,7 +225,17 @@ export class Search extends React.Component<Props> {
         <input
           onFocus={() => this.setState({ isFocused: true })}
           onBlur={() => this.setState({ isFocused: false })}
+          onChange={() => {
+            if (this.searchRef.current) {
+              this.setState({
+                isDropdownVisible:
+                  this.searchRef.current.value.length &&
+                  this.searchRef.current.getAttribute('aria-expanded'),
+              });
+            }
+          }}
           id={this.props.hiddenOnMobile ? 'algolia-search-box' : 'algolia-search-box-mobile'}
+          className={isDropdownVisible ? 'algolia-search-box-autocomplete-on' : undefined}
           type="text"
           placeholder="Search"
           autoComplete="off"
@@ -232,9 +245,7 @@ export class Search extends React.Component<Props> {
         />
 
         {this.props.hiddenOnMobile ? (
-          <div
-            className="shortcut-hint"
-            style={{ display: this.state.isFocused ? 'none' : 'flex' }}>
+          <div className="shortcut-hint" style={{ display: isFocused ? 'none' : 'flex' }}>
             <SlashShortcut />
           </div>
         ) : (
