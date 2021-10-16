@@ -15,6 +15,9 @@ const STYLES_INPUT = css`
   display: flex;
   position: relative;
   align-items: flex-end;
+  width: 100%;
+  // Current doc container max-width - padding, to match page max width
+  max-width: calc(1200px - (56px * 2));
 
   .searchbox {
     width: auto;
@@ -29,8 +32,7 @@ const STYLES_INPUT = css`
     ${paragraph}
     -webkit-appearance: none;
     box-sizing: border-box;
-    width: 24vw;
-    max-width: ${Constants.breakpoints.mobileValue - 32}px;
+    width: 100%;
     padding: 0 16px 0 40px;
     border-radius: 4px;
     height: 40px;
