@@ -26,6 +26,7 @@ const headerStyle = css`
   border-top-right-radius: ${borderRadius.medium}px;
   display: flex;
   justify-content: space-between;
+  min-height: 42px;
 `;
 
 const headerDarkStyle = css`
@@ -34,7 +35,8 @@ const headerDarkStyle = css`
 `;
 
 const headerTitleStyle = css`
-  padding: 0.625rem 1rem;
+  padding: 0 1rem;
+  line-height: 42px;
 `;
 
 const headerActionsStyle = css`
