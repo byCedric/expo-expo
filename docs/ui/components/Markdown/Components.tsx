@@ -1,5 +1,5 @@
 import { css, CSSObject } from '@emotion/react';
-import { colors } from '@expo/styleguide';
+import { theme } from '@expo/styleguide';
 import React from 'react';
 
 import { Blockquote } from './Blockquote';
@@ -81,7 +81,11 @@ const markdownStyles: MarkdownConfigType = {
   },
   hr: {
     Component: 'hr',
-    style: { border: 'none', borderTop: `1px solid ${colors.gray[400]}`, margin: `2ch 0` },
+    style: {
+      border: 'none',
+      borderTop: `1px solid ${theme.border.default}`,
+      margin: `16px 0 24px`,
+    },
   },
   blockquote: {
     Component: Blockquote,

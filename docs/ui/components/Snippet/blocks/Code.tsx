@@ -20,7 +20,7 @@ type CodeProps = PropsWithChildren<{
 // - [ ] Hide code that isn't relevant using `@hide <placeholder> ... @end`
 // - [ ] Annotate/mark code with tooltip popover
 
-export const Code = ({ children, className, title = 'JavaScript' }: CodeProps) => {
+export const Code = ({ children, className, title = '' }: CodeProps) => {
   const textChildren = children?.toString() || '';
   const mdxLanguage = (className || '').split(' ')[0]; // TODO(cedric): clean this up
 

@@ -8,5 +8,7 @@ type CellProps = {
 };
 
 export const Cell = ({ children, textAlign }: PropsWithChildren<CellProps>) => (
-  <td css={css({ borderBottom: 0, verticalAlign: 'middle', textAlign })}>{children}</td>
+  <td css={css({ borderBottom: 0, verticalAlign: 'middle', wordBreak: 'break-word', textAlign })}>
+    {children}
+  </td>
 );
