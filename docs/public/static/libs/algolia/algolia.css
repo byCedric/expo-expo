@@ -158,9 +158,6 @@ html[data-expo-theme='dark'] .algolia-autocomplete .algolia-docsearch-suggestion
   font-size: 1.25em;
   cursor: default;
 }
-.algolia-autocomplete span[class*='ds-without'] .algolia-docsearch-suggestion:hover {
-  background-color: transparent;
-}
 .algolia-autocomplete .algolia-docsearch-suggestion code {
   padding: 1px 5px;
   font-size: 90%;
@@ -168,7 +165,7 @@ html[data-expo-theme='dark'] .algolia-autocomplete .algolia-docsearch-suggestion
   color: #222;
   background-color: var(--expo-theme-text-default);
   border-radius: 3px;
-  font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+  font-family: 'expo-brand-mono', Menlo, Monaco, Consolas, Courier New, monospace;
 }
 .algolia-autocomplete .algolia-docsearch-suggestion code .algolia-docsearch-suggestion--highlight {
   background: none;
