@@ -5,8 +5,8 @@ import React from 'react';
 import { Logo } from './Logo';
 import { Theme } from './Theme';
 
-import AlgoliaSearch from '~/components/plugins/AlgoliaSearch'; // todo
 import { MenuColumn, TocColumn } from '~/ui/containers/Document';
+import { Search } from '~/ui/containers/Navigation/Search';
 import { breakpoints } from '~/ui/foundations/breakpoints';
 
 export const Navigation = () => {
@@ -15,7 +15,7 @@ export const Navigation = () => {
       <MenuColumn css={columnStyle}>
         <Logo />
       </MenuColumn>
-      <AlgoliaSearch version="latest" hiddenOnMobile />
+      <Search version="latest" hiddenOnMobile />
       <TocColumn css={[columnStyle, { justifyContent: 'flex-end' }]}>
         <Theme />
       </TocColumn>

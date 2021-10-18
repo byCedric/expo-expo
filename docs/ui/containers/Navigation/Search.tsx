@@ -15,6 +15,10 @@ const STYLES_INPUT = css`
   display: flex;
   position: relative;
   align-items: flex-end;
+  width: 100%;
+  // Current doc container max-width - padding, to match page max width
+  max-width: calc(1200px - (56px * 2));
+  margin-left: -21px;
 
   .searchbox {
     width: auto;
@@ -29,8 +33,7 @@ const STYLES_INPUT = css`
     ${paragraph}
     -webkit-appearance: none;
     box-sizing: border-box;
-    width: 24vw;
-    max-width: ${Constants.breakpoints.mobileValue - 32}px;
+    width: 100%;
     padding: 0 16px 0 40px;
     border-radius: 4px;
     height: 40px;
@@ -58,6 +61,7 @@ const STYLES_INPUT = css`
     align-items: center;
     justify-content: center;
     pointer-events: none;
+    z-index: 102;
   }
 
   .search {
@@ -71,7 +75,7 @@ const STYLES_INPUT = css`
     align-items: center;
     justify-content: center;
     pointer-events: none;
-    z-index: 1;
+    z-index: 102;
   }
 `;
 
@@ -119,6 +123,7 @@ export class Search extends React.Component<Props> {
 
   state = {
     isFocused: false,
+    isDropdownVisible: false,
   };
 
   private processUrl(url: string) {
@@ -160,12 +165,8 @@ export class Search extends React.Component<Props> {
         const url = new URL(suggestion.url);
         const route = this.processUrl(url.pathname + url.hash);
 
-        let asPath;
         if (Utilities.isVersionedUrl(suggestion.url) && this.props.version === 'latest') {
-          asPath = this.processUrl(Utilities.replaceVersionInUrl(route, 'latest'));
-        }
-
-        if (asPath) {
+          const asPath = this.processUrl(Utilities.replaceVersionInUrl(route, 'latest'));
           Router.push(route, asPath);
         } else {
           Router.push(route);
@@ -209,6 +210,7 @@ export class Search extends React.Component<Props> {
   }
 
   render() {
+    const { isFocused, isDropdownVisible } = this.state;
     return (
       <div
         css={[STYLES_INPUT, !this.props.hiddenOnMobile && STYLES_INPUT_MOBILE]}
@@ -220,7 +222,17 @@ export class Search extends React.Component<Props> {
         <input
           onFocus={() => this.setState({ isFocused: true })}
           onBlur={() => this.setState({ isFocused: false })}
+          onChange={() => {
+            if (this.searchRef.current) {
+              this.setState({
+                isDropdownVisible:
+                  this.searchRef.current.value.length &&
+                  this.searchRef.current.getAttribute('aria-expanded'),
+              });
+            }
+          }}
           id={this.props.hiddenOnMobile ? 'algolia-search-box' : 'algolia-search-box-mobile'}
+          className={isDropdownVisible ? 'algolia-search-box-autocomplete-on' : undefined}
           type="text"
           placeholder="Search"
           autoComplete="off"
@@ -230,9 +242,7 @@ export class Search extends React.Component<Props> {
         />
 
         {this.props.hiddenOnMobile ? (
-          <div
-            className="shortcut-hint"
-            style={{ display: this.state.isFocused ? 'none' : 'flex' }}>
+          <div className="shortcut-hint" style={{ display: isFocused ? 'none' : 'flex' }}>
             <SlashShortcut />
           </div>
         ) : (
