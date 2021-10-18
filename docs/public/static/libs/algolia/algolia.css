@@ -56,8 +56,18 @@
   display: block;
   border-radius: 4px;
 }
-.algolia-autocomplete .algolia-docsearch-suggestion:hover {
+.algolia-autocomplete .ds-cursor .algolia-docsearch-suggestion {
   background-color: var(--expo-theme-background-secondary);
+}
+.algolia-autocomplete .ds-cursor .algolia-docsearch-suggestion:after {
+  position: absolute;
+  right: 20px;
+  width: 18px;
+  height: 18px;
+  top: 50%;
+  margin-top: -9px;
+  content: '↩';
+  color: var(--expo-theme-icon-default);
 }
 .algolia-autocomplete .algolia-docsearch-suggestion--highlight,
 .algolia-autocomplete .algolia-docsearch-suggestion--text .algolia-docsearch-suggestion--highlight {
