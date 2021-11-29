@@ -53,10 +53,8 @@ export const APIGridCell = ({
     <div css={[cellStyle, cellAPIStyle, style]}>
       <div css={cellIconWrapperStyle}>{icon}</div>
       <Link href={link} css={cellTitleWrapperStyle}>
-        <>
-          {title}
-          <span css={cellTitleArrow}>{'->'}</span>
-        </>
+        {title}
+        <span css={cellTitleArrow}>{'->'}</span>
       </Link>
     </div>
   </Col>
