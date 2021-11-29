@@ -52,12 +52,12 @@ export const APIGridCell = ({
   <Col css={cellWrapperStyle} md={md} sm={sm} xl={xl}>
     <div css={[cellStyle, cellAPIStyle, style]}>
       <div css={cellIconWrapperStyle}>{icon}</div>
-      <div css={cellTitleWrapperStyle}>
-        <Link href={link} css={cellTitleStyle}>
+      <Link href={link} css={cellTitleWrapperStyle}>
+        <>
           {title}
           <span css={cellTitleArrow}>{'->'}</span>
-        </Link>
-      </div>
+        </>
+      </Link>
     </div>
   </Col>
 );
@@ -122,16 +122,15 @@ const cellIconWrapperStyle = css({
 });
 
 const cellTitleWrapperStyle = css({
+  display: 'flex',
+  justifyContent: 'space-between',
   backgroundColor: theme.background.default,
   padding: 16,
-});
-
-const cellTitleStyle = css({
+  textDecoration: 'none',
   fontSize: 15,
   fontFamily: fontStacks.bold,
   lineHeight: '30px',
   color: theme.text.default,
-  textDecoration: 'none',
 });
 
 const cellTitleArrow = css({ float: 'right', fontSize: 18, color: theme.text.secondary });

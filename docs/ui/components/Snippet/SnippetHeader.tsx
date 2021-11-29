@@ -36,7 +36,7 @@ const headerDarkStyle = css`
 
 const headerTitleStyle = css`
   padding: 0 1rem;
-  line-height: 42px;
+  line-height: 42px !important;
 `;
 
 const headerActionsStyle = css`
