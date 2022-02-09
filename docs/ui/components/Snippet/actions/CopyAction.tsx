@@ -12,7 +12,7 @@ type CopyActionProps = SnippetActionProps & {
 
 export const CopyAction = ({ text, ...rest }: CopyActionProps) => {
   const onCopyClick = () => {
-    navigator.clipboard.writeText(text);
+    navigator.clipboard?.writeText(text);
   };
 
   return (
